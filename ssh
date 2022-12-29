@@ -1,0 +1,41 @@
+vim remote_access_ssh.sh
+chmod +x remote_access_ssh.sh
+----------------------------------------------------------------------
+#vim remote_access_ssh.sh
+(write bellow content in file "remote_access_ssh.sh")
+#!/bin/bash
+echo
+echo "***@@ Welcome to SSH Service for Remote Access @@***"
+echo
+echo "Please Enter ip Address of Remote Server:"
+echo
+read ip
+echo
+echo "Please Enter the username:"
+echo
+read username
+
+if [ $username ] || [ $ip ]
+then
+        ssh $username@$ip
+else
+        echo "$username user not found please contact with admin"
+fi
+(save & exit)
+--------------------------------------------------------------------------
+output-
+[root@server ~]# ./remote_access_ssh.sh 
+
+***@@ Welcome to SSH Service for Remote Access @@***
+
+Please Enter ip Address of Remote Server:
+
+172.10.24.200
+
+Please Enter the username:
+
+many
+many@172.10.24.200's password: 
+Last login: Fri Dec 30 01:32:27 2022 from 172.10.24.100
+bash: uid: command not found...
+[many@client ~]$ -------->> (we get access :D)
